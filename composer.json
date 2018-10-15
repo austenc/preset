@@ -1,0 +1,24 @@
+{
+    "name": "austenc/my-preset",
+    "authors": [
+        {
+            "name": "austenc",
+            "email": "austen.cameron@gmail.com"
+        }
+    ],
+    "require": {
+        "laravel/framework": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "AustenCam\\Preset\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AustenCam\\Preset\\PresetServiceProvider"
+            ]
+        }
+    }
+}
