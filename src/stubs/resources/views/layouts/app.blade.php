@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,7 @@
     </head>
     <body class="font-sans antialiased text-grey-dark">
         <div id="app">
+            @includeIf('nav')
             @yield('body')
         </div>
         <script src="{{ mix('js/app.js') }}"></script>
