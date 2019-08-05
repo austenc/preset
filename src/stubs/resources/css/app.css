@@ -1,13 +1,9 @@
-/**
- * This imports Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- */
-@import "tailwindcss/preflight";
+@import "tailwindcss/base";
 
 /**
  * This injects any component classes registered by plugins.
  */
- @import "tailwindcss/components";
+@import "tailwindcss/components";
 
 /**
  * Here you would add any of your custom component classes; stuff that you'd
@@ -23,7 +19,7 @@
 /**
  * This injects all of Tailwind's utility classes, based on your config file.
  */
- @import "tailwindcss/utilities";
+@import "tailwindcss/utilities";
 
 /**
  * Here you would add any custom utilities you need in addition to Tailwind's

@@ -1,4 +1,5 @@
 <?php
+
 namespace AustenCam\Preset;
 
 use Illuminate\Filesystem\Filesystem;
@@ -16,6 +17,7 @@ class Preset extends BasePreset
         static::updateJavascript();
         static::updateGitignore();
         static::removeNodeModules();
+        static::addTailwindConfig();
     }
 
     /**
@@ -30,7 +32,7 @@ class Preset extends BasePreset
             'laravel-mix-purgecss' => '^3.0.0',
             'postcss-import' => '^12.0.0',
             'postcss-nesting' => '^7.0.0',
-            'tailwindcss' => '>=0.6.6',
+            'tailwindcss' => '^1.0.0',
         ] + array_except($packages, [
             'bootstrap',
             'jquery',
@@ -57,7 +59,7 @@ class Preset extends BasePreset
             $files->deleteDirectory(resource_path('sass'));
             $files->delete(public_path('css/app.css'));
 
-            if (! $files->isDirectory($directory = resource_path('css'))) {
+            if (!$files->isDirectory($directory = resource_path('css'))) {
                 $files->makeDirectory($directory, 0755, true);
             }
             $files->copy(__DIR__ . '/stubs/resources/css/app.css', resource_path('css/app.css'));
@@ -82,7 +84,7 @@ class Preset extends BasePreset
     {
         tap(new Filesystem, function ($files) {
             $files->delete(resource_path('views/welcome.blade.php'));
-            $files->copyDirectory(__DIR__.'/stubs/resources/views', resource_path('views'));
+            $files->copyDirectory(__DIR__ . '/stubs/resources/views', resource_path('views'));
         });
     }
 
@@ -92,5 +94,10 @@ class Preset extends BasePreset
     protected static function updateGitignore()
     {
         copy(__DIR__ . '/stubs/new-gitignore', base_path('.gitignore'));
+    }
+
+    protected function addTailwindConfig()
+    {
+        copy(__DIR__ . '/stubs/tailwind.config.js', base_path('tailwind.config.js'));
     }
 }

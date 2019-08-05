@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
     </head>
-    <body class="font-sans antialiased text-grey-dark">
+    <body class="font-sans antialiased text-gray-600">
         <div id="app">
             @includeIf('nav')
             @yield('body')
