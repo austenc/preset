@@ -96,7 +96,7 @@ class Preset extends BasePreset
         copy(__DIR__ . '/stubs/new-gitignore', base_path('.gitignore'));
     }
 
-    protected function addTailwindConfig()
+    protected static function addTailwindConfig()
     {
         copy(__DIR__ . '/stubs/tailwind.config.js', base_path('tailwind.config.js'));
     }
